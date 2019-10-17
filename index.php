@@ -1,3 +1,62 @@
+<?php
+
+if(isset($_POST['submit'])){
+    $form_submit = 'none';
+    $form_message = 'block';
+    $email_to = "kanyalnisha26@gmail.com";
+    $subject = "ICRI | Leads";
+    $email_message .= "
+<html>
+<head>
+    <title>HTML email</title>
+  </head>
+  <body>    
+      <table style='background-color :#f1f2f1; padding: 5px 5px 5px 5px;'>
+        <tr>";
+            $email_message .= "<td>name:</td>";
+            $email_message .= "<td>".$_POST['name']."</td>\n";
+            $email_message .= "</tr>
+           
+        <tr>
+            <td>mail:</td>";
+           $email_message .= "<td>".$_POST['mail']."</td>\n";
+           $email_message .="</tr>
+           
+        <tr>  
+            <td>mobile:</td>";
+           $email_message .= "<td>".$_POST['mobile']."</td>\n";
+           $email_message .="</tr>
+           
+        <tr>  
+            <td>services:</td>";
+           $email_message .= "<td>".$_POST['services']."</td>\n";
+           $email_message .="</tr>  
+           
+            <td>Page:</td>";
+             $email_message .= "<td>".$_POST['Page']."</td>\n";
+             $email_message .= "</tr>
+      </table>
+    </body>
+</html>
+";
+    $from = 'info@icriindia.com';
+     
+    // Sending email
+    $headers = "From: info@icriindia.com\r\nReply-To: info@icriindia.com";
+    $headers .='X-Mailer: PHP/' . phpversion();
+    $headers .= "MIME-Version: 1.0" . "\r\n";
+    $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+    if(mail($email_to, $subject, $email_message, $headers)){
+        //echo 'Your mail has been sent successfully.';
+    } else{
+        //echo 'Unable to send email. Please try again.';
+    }
+}else{
+    $form_submit = 'block';
+    $form_message = 'none';
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,6 +66,7 @@
     <meta name="Description" content="Put your description here.">
     <title>Shuraa</title>
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Philosopher&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style.css">
@@ -20,7 +80,8 @@
         </div>
         <div class="content grid-m grid-t">
             <div class="text" data-aos="zoom-in">
-                <p>Our tax consultants intend to extend your company’s financial potential and achieve systematic and timely accounting reports for your company.</p>
+                <p class="heading">One Stop Support for Tax & Accounting Services</p>
+                <p class="font-20">Our tax consultants intend to extend your company’s financial potential and achieve systematic and timely accounting reports for your company.</p>
             </div>
             
             <div class="form-area grid-m" data-aos="fade-up">
@@ -29,16 +90,17 @@
                 </div>
                 <form method="get" action="" class="grid-m" autocomplete="off">
                     <div class="name grid-m">
-                        <input class="form-control" type="text" name="name" placeholder="Name" aria-label="first name" required>
+                        <input class="form-control" type="text" name="name" placeholder="Name*" aria-label="first name" required>
                     </div>
                     <div>
-                        <input class="form-control" type="email" name="mail" placeholder="Email Address" aria-label="email" required>
+                        <input class="form-control" type="email" name="mail" placeholder="Email Address*" aria-label="email" required>
                     </div>
                     <div>
-                        <input class="form-control" type="tel" name="mobile" placeholder="10 digit Mobile" aria-label="number" required>
+                        <input class="form-control" type="tel" name="mobile" placeholder="Mobile Number*" aria-label="number" required>
                     </div>
                     <div>
-                        <select name="year" required aria-label="services" placeholder="Services">
+                        <select name="services" required aria-label="services" placeholder="Services*">
+                            <option value="" disabled selected>Services*</option>
                             <option value="">VAT Registration Process</option>
                             <option>VAT Advisory Services</option>
                             <option>Tax Agent Services</option>
@@ -50,10 +112,17 @@
                             <option>UAE Tax residency certification</option>
                         </select>
                     </div>
+                    <div>
+                        <textarea class="form-control" rows="5" cols="10" placeholder="Message*">Your Message*  
+                        </textarea>
+                    </div>
                     <div class="button">
                         <button class="btn">Request a Call Back</button>
                     </div>
                 </form>
+                <div id="form-message" style="display: <?php echo $form_message ?>">
+                    <p>ThankYou for your Enquiry!</p>
+                </div>
             </div>
         </div>
     </section>
@@ -81,6 +150,7 @@
                             <li>
                                 Group and individual registrations.
                             </li>
+                            <li>Guide to awareness of VAT registration procedure and VAT registration cost in UAE.</li>
                         </ul>
                     </div>
                 </div>
@@ -140,12 +210,12 @@
                     <div class="info">
                         <ul>
                             <li>Review the VAT details and assist in computations of VAT return.</li>
-                            <li>Ensuring tax compliance by team of qualified and experienced professional team.</li>
+                            <li>Ensuring tax compliance by team of qualified and experienced professional.</li>
             
                             <li>
                                 Updating latest information of company to Authorities.
                             </li>
-                            <li>Review services for earlier filed returns and corrective actions if required.</li>
+                            <li>Review services for earlier filed returns.</li>
                         </ul>
                     </div>
                 </div>
@@ -199,7 +269,7 @@
     <section class="why grid-m p-all">
         <div class="head font-bold
         font-22 color-grey">
-            <p>Why Shuraa Tax Accountant & Consultant ?</p>
+            <p>Why Choose Shuraa Tax Accountant & Consultant ?</p>
         </div>
         <div class="content grid-m grid-d" data-aos="fade-up">
             <div class="benefits grid-m">

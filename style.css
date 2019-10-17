@@ -18,7 +18,7 @@
 }
 
 .banner .form-area form{
-	grid-template-rows: repeat(5,auto);
+	grid-template-rows: repeat(6,auto);
 	grid-row-gap: 1rem;
 }
 
@@ -27,8 +27,8 @@
 }
 
 .why .content,.doubts .number,.doubts .mail,
-.doubts .address{
-	grid-template-rows: auto auto auto;
+.doubts .address,.doubts .website{
+	grid-template-rows: 50px 1fr 1fr;
 }
 
 .doubts .content{
@@ -128,9 +128,11 @@ body{
 }
 
 input::placeholder,
-select{
-	font-size: 14px;
-    color: grey;
+select,textarea{
+	font-size: 13px;
+    color: #a19d9d;
+    font-family: Helvetica;
+    letter-spacing: 0.5px;
 }
 
 input:focus, select:focus{
@@ -139,10 +141,10 @@ input:focus, select:focus{
 
 .banner .form-area{
 	background: rgba(0,0,0,0.6);
-    padding: 4rem 2rem;
+    padding: 2rem 2rem 3rem 2rem;
     border-radius: 4px;
     color: #fff;
-    grid-row-gap: 1.5rem;
+    grid-row-gap: 2.5rem;
 }
 
 .banner,.banner .content{
@@ -197,6 +199,7 @@ input:focus, select:focus{
 
 .doubts .content .title{
 	color: #fff;
+	align-self: center;
 }
 
 ul{
@@ -330,6 +333,18 @@ ul{
 		padding-bottom: 4rem;
 	}
 
+	.banner .content .text {
+    padding: 0 3rem;
+    font-family: 'Philosopher', sans-serif;
+}
+
+.banner .content .text .heading {
+    font-size: 3.5rem;
+    line-height: 1.3;
+    padding-bottom: 16px;
+    font-weight: bold;
+}
+
 
 /*.test{
 	grid-template-rows: 1fr 1fr !important;
@@ -398,7 +413,14 @@ ul{
 	}
 
 	.banner .content .text{
-		padding: 0 10rem;
+		padding: 0 7rem;
+	}
+
+	.banner .content .text .heading{
+		font-size: 4.5rem;
+    line-height: 1.3;
+    padding-bottom: 16px;
+    font-weight: bold;
 	}
 
 	.banner .content {
