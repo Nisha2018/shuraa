@@ -102,14 +102,14 @@ if(isset($_POST['submit'])){
                         <select name="services" required aria-label="services" placeholder="Services*">
                             <option value="" disabled selected>Services*</option>
                             <option value="">VAT Registration Process</option>
-                            <option>VAT Advisory Services</option>
-                            <option>Tax Agent Services</option>
-                            <option>VAT Return Filing & Compliance Sevices</option>
-                            <option>Accounting & Book keeping Services</option>
-                            <option>MIS Reporting & Compliance Review</option>
-                            <option>UAE Excise registration</option>
-                            <option>Excise Consultation Services</option>
-                            <option>UAE Tax residency certification</option>
+                            <option value="VAT Advisory Services">VAT Advisory Services</option>
+                            <option value="Tax Agent Services">Tax Agent Services</option>
+                            <option value="VAT Return Filing & Compliance Sevices">VAT Return Filing & Compliance Sevices</option>
+                            <option value="Accounting & Book keeping Services">Accounting & Book keeping Services</option>
+                            <option value="MIS Reporting & Compliance Review">MIS Reporting & Compliance Review</option>
+                            <option value="UAE Excise registration">UAE Excise registration</option>
+                            <option value="Excise Consultation Services">Excise Consultation Services</option>
+                            <option value="UAE Tax residency certification">UAE Tax residency certification</option>
                         </select>
                     </div>
                     <div>
